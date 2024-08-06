@@ -1,7 +1,7 @@
 CREATE TABLE Hostels (
 hostel_id INT IDENTITY (1,1) PRIMARY KEY,
-hostel_name NVARCHAR(30)  UNIQUE,
-location NVARCHAR(40) NOT NULL,
+hostel_name NVARCHAR(20)  UNIQUE,
+location NVARCHAR(20) NOT NULL,
 total_rooms INT NOT NULL CHECK (total_rooms IS NOT NULL),
 warden_name NVARCHAR(20)
 );
@@ -11,7 +11,7 @@ CREATE TABLE Rooms (
 room_id INT IDENTITY (1,1) PRIMARY KEY, 
 floor INT NOT NULL,
 capacity INT NOT NULL CHECK (CAPACITY > 0),
-status NVARCHAR(30) CHECK (status='occupied' or status='vacant' or status='under maintenance') DEFAULT 'vacant',
+status NVARCHAR(20) CHECK (status='occupied' or status='vacant' or status='under maintenance') DEFAULT 'vacant',
 hostel_id INT,
 FOREIGN KEY (hostel_id) 
 REFERENCES Hostels(hostel_id) ON DELETE CASCADE
@@ -24,8 +24,8 @@ student_name NVARCHAR (30) NOT NULL,
 dateof_birth DATE NOT NULL,
 gender NCHAR (20) NOT NULL,
 contact_number NVARCHAR (20) NOT NULL UNIQUE ,
-email NVARCHAR (40) NOT NULL UNIQUE,
-address NVARCHAR (40) NOT NULL,
+email NVARCHAR (20) NOT NULL UNIQUE,
+address NVARCHAR (20) NOT NULL,
 joining_date DATE  NOT NULL CHECK (TRY_CONVERT(DATE,joining_date) IS NOT NULL),
 status NVARCHAR(6) CHECK (status='active' or status='inactive' or status='graduated') DEFAULT 'active',
 room_id INT,
