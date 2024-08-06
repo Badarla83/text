@@ -83,7 +83,7 @@ INSERT INTO Staff (staff_name,role,contact_number,email,hostel_id) VALUES
  
 INSERT INTO Facilities (facility_name,hostel_id) VALUES
 ('Gym',1),
-('interview-room',1),
+('interview_room',1),
 ('Study_Room',2),
 ('Common_Room',3);
  
